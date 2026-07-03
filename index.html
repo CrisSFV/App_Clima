@@ -1,25 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buscador Geográfico Profesional</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#052e16">
+  <title>Localizador Geográfico Global · Clima en Vivo</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-<h1>Localizador Geográfico Global</h1>
-<p>Consumo de API OpenStreetMap con control de versiones integral. Por Mtro. René Peña Martínez</p>
-</header>
-<main>
-<div class="search-container">
-<input type="text" id="city-input" placeholder="Introduce un lugar (ej. Monterrey, Madrid)...">
-<button id="search-btn">Consultar API</button>
-</div>
-<div id="weather-card" class="weather-card">
-<p>Introduce una ubicación para desplegar las coordenadas y descripción geográfica.</p>
-</div>
-</main>
-<script src="app.js"></script>
+  <header>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+      <h1>Localizador Geográfico Global</h1>
+    </div>
+    <p>Clima en tiempo real vía Open-Meteo + geocodificación OpenStreetMap</p>
+  </header>
+
+  <main>
+    <div class="search-container">
+      <div class="input-wrapper">
+        <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="city-input" placeholder="Introduce un lugar (ej. Monterrey, Madrid)...">
+      </div>
+
+      <div class="button-row">
+        <button id="search-btn">Consultar clima</button>
+        <button id="geo-btn" title="Usar mi ubicación actual">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
+        </button>
+        <div class="unit-toggle">
+          <button id="unit-c" class="unit-btn active" data-unit="C">°C</button>
+          <button id="unit-f" class="unit-btn" data-unit="F">°F</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="weather-card" class="weather-card" aria-live="polite" aria-atomic="true">
+      <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+      <p>Introduce una ubicación o usa tu ubicación actual para consultar el clima.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>Datos geográficos: Nominatim (OpenStreetMap) · Datos meteorológicos: Open-Meteo API</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
